@@ -1,0 +1,26 @@
+FROM python:3.10-slim
+
+# Create a virtual environment in /opt/venv
+RUN python -m venv /opt/venv
+
+# Activate venv and set PATH
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Upgrade pip
+RUN pip install --upgrade pip
+
+# Set the working directory
+WORKDIR /app
+
+# Copy requirements file and install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port FastAPI will run on
+EXPOSE 8002
+
+# Run the FastAPI app using uvicorn with reload enabled
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002", "--reload"]

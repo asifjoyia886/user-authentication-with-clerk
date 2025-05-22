@@ -1,0 +1,46 @@
+# Node.js
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.nextjs.local
+.env.backend.local
+.env.bakckenld.local
+
+# Python virtual environment
+venv/
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*.bak
+
+# Ignore lock files (optional)
+package-lock.json
+yarn.lock
+
+# Don't ignore VS Code settings (you said to include them)
+# So no `.vscode/` here
+# Secret keys
+secretkey
+*.pem
+*.key
+*.env*
+venv/
+__pycache__/
+*.pyc
+node_modules/
+*.sqlite3
+secretkey

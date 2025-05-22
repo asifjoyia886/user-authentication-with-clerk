@@ -1,0 +1,16 @@
+FROM node:lts-slim
+
+# Update npm to latest globally
+RUN npm install -g npm
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy all files into /app
+COPY . /app
+
+# Install dependencies
+RUN npm install
+
+# Run the app in development mode, binding to all interfaces (--host)
+CMD ["npm", "run", "dev", "--", "--host"]
